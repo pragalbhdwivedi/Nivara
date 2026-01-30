@@ -118,6 +118,37 @@ Let iron learn to bend,
 For where her name is spoken low,
 The war will break… and end.
 
+## Character Visual Sheet (1/8) — Pranish
+
+### Face Vibe
+- Calm, self-assured, emotionally grounded.
+- Soft oval face, almond expressive eyes, subtle confident smile.
+- Quiet power more than aggression.
+
+### Outfit Silhouette
+- White–silver armored warrior with clean lines.
+- Fur mantle or cloak for survival.
+- Practical plated bodice with layered skirt/guards.
+- No excessive ornamentation; everything functional.
+
+### Palette
+- Ice silver, snow white, midnight blue.
+- Accent: glacial cyan gemstone (small, central).
+
+### Signature Prop
+- Dual swords (one long, one short).
+- Snowgem charm (tiny, near collar or waist).
+
+### Prompt Lines (Copy-Paste)
+**Anime**
+Pranish (locked identity), white-silver winter warrior armor, fur mantle, dual swords, falling snow, calm confident gaze, semi-realistic anime, detailed eyes, soft shading, crisp silhouette
+
+**Dark fantasy**
+Pranish (locked identity), frostbound blade, gothic winter armor in silver and white, storm snow swirl, moonlit rim lighting, ancient ice ruins, dark fantasy anime, ethereal cold aura
+
+**Cinematic**
+Pranish (locked identity), photoreal cinematic winter warrior, silver armor with realistic scratches, fur cloak, dual swords, blizzard particles, dramatic cold lighting, shallow depth of field, high detail
+
 ## First Appearance Scene
 Snow should not have been falling in the valley of Ash-Tyr. The mapmakers swore this place was dust and stone—an old wound in the world where nothing clean could survive.
 
