@@ -66,3 +66,6 @@ The White Silence (used by enemies—because when she arrives, battles end witho
 
 ### Legendary Quote
 > “If I stand before you, the war is already over.”
+
+## Character Directory
+Full character details live in [characters/PRANISH/README.md](./PRANISH/README.md).

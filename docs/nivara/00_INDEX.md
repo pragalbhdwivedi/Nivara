@@ -11,8 +11,8 @@ This index is the entry point for the Nivara world bible. Use the links below to
 - [06 — Central Conflict: The Melt](./06_CONFLICT_THE_MELT.md)
 - [07 — Regions (Map Feel)](./07_REGIONS_MAP_FEEL.md)
 - [08 — Story Arcs](./08_STORY_ARCS.md)
-- [Characters — Pranish](./characters/PRANISH.md)
-- [Characters — Maalkor](./characters/MAALKOR.md)
+- [Characters — Pranish](./characters/PRANISH/README.md)
+- [Characters — Maalkor](./characters/MAALKOR/README.md)
 - [Symbols & Sigils](./symbols/SYMBOLS_AND_SIGILS.md)
 
 ## Pranish Canon Addendum

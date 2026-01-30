@@ -13,6 +13,3 @@ Maalkor leads the Ash Dominion, an infection of frenzy rather than a nation. He 
 
 ## Pranish Canon Addendum
 Maalkor leads the Ash Dominion with his Ash-Brides, turning grief into riots and making peace feel humiliating.
-
-## Character Directory
-Full character details live in [characters/MAALKOR/README.md](./MAALKOR/README.md).
