@@ -13,3 +13,6 @@ A phenomenon spreads across Nivara called The Melt. It is not warmth and not spr
 - **The Iron Sanctum**: Calls it an opportunity: “If nature is unstable, law must become permanent.”
 - **The Blood Choir**: Panics as their visions fracture into static.
 - **Pranish**: Feels the Melt in her bones like a blade vibrating before it breaks.
+
+## Pranish Canon Addendum
+The Melt is a wrongness: snow falls in deserts, rivers freeze in summer, and winter sometimes refuses to come at all, leaving rot instead. The Veil-Mothers believe someone is breaking old Oaths; Maalkor claims liberation: “The world is tired of silence.” The Iron Sanctum calls it an opportunity: “If nature is unstable, law must become permanent.” The Blood Choir’s visions fracture into static, and Pranish feels it in her bones like a blade vibrating before it breaks.

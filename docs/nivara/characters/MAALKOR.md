@@ -10,3 +10,6 @@ Maalkor leads the Ash Dominion, an infection of frenzy rather than a nation. He 
 - Rules alongside the Ash-Brides, war-oracles crowned in soot and gold.
 - Can erase names from memory, creating “ghost wars.”
 - Frames the Melt as liberation: “The world is tired of silence.”
+
+## Pranish Canon Addendum
+Maalkor leads the Ash Dominion with his Ash-Brides, turning grief into riots and making peace feel humiliating.

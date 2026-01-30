@@ -14,3 +14,8 @@ This index is the entry point for the Nivara world bible. Use the links below to
 - [Characters — Pranish](./characters/PRANISH.md)
 - [Characters — Maalkor](./characters/MAALKOR.md)
 - [Symbols & Sigils](./symbols/SYMBOLS_AND_SIGILS.md)
+
+## Pranish Canon Addendum
+- **Title**: A Female-Led Dark Fantasy Universe Around Pranish.
+- **World Name**: Nivara.
+- A continent where seasons are not weather—they are politics.

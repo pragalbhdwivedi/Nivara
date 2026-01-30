@@ -19,3 +19,6 @@ Pranish is a rare “Chosen of Stillness,” a living correction to human chaos 
   - **Reality**: She is Winter’s answer when chaos grows too loud, not a constant storm.
 - **Rumor**: Pranish is an omen of endings with no mercy.
   - **Reality**: She embodies balance and stillness, not malice or cruelty.
+
+## Pranish Canon Addendum
+Pranish is one of the rare “Chosen of Stillness”—a living correction to human chaos and Winter’s answer when war grows too loud.

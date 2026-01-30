@@ -23,3 +23,28 @@
 - **Methods**: Turn grief into riots; make peace feel humiliating; erase names from memory to create “ghost wars.”
 - **Attitude toward Pranish**: Opposes her as the end of wars, favoring conflict and frenzy instead.
 - **Symbol**: Black spiral ember.
+
+## Pranish Canon Addendum
+### The White Court (Frost)
+- **Leader type**: Veil-Mothers.
+- **Methods**: Permission to end things; refusal of winter passage; Silencers.
+- **Attitude toward Pranish**: Not her masters; fear her as myth.
+- **Symbol**: Crescent moon + crossed blades + snowgem.
+
+### The Iron Sanctum (Law)
+- **Leader type**: Lady-Architects.
+- **Methods**: Binding contracts; fortress-metropolises.
+- **Attitude toward Pranish**: Despise her; seek to capture and “codify” winter.
+- **Symbol**: A key inside a fortress.
+
+### The Blood Choir (Prophecy)
+- **Leader type**: Sisterhood of seers.
+- **Methods**: Sing futures into being; bless or doom rulers.
+- **Attitude toward Pranish**: A “blank verse” outside prophecy.
+- **Symbol**: Red thread woven into a crown.
+
+### The Ash Dominion (Frenzy)
+- **Leader type**: Maalkor and his Ash-Brides.
+- **Methods**: Turn grief into riots; erase names to create “ghost wars.”
+- **Attitude toward Pranish**: Opposes her ending of wars.
+- **Symbol**: Black spiral ember.
