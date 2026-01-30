@@ -22,3 +22,47 @@ Pranish is a rare “Chosen of Stillness,” a living correction to human chaos 
 
 ## Pranish Canon Addendum
 Pranish is one of the rare “Chosen of Stillness”—a living correction to human chaos and Winter’s answer when war grows too loud.
+
+## Character Profile
+
+### Name
+Pranish
+
+### Title
+Pranish, the Frostbound Blade (used formally in chronicles and war oaths).
+
+### Alias
+The White Silence (used by enemies—because when she arrives, battles end without noise.)
+
+### Origin & Lore
+- Born in the high borderlands where winter never fully retreats and steel rusts slower than memory.
+- Trained to end wars, not to rule.
+- Her clan believed silence was the purest form of power: no banners, no victory cries, only precision.
+- When the northern kingdoms collapsed into endless conflict, she walked away from banners and crowns alike.
+- She became a blade without allegiance; where armies failed, she finished.
+- Snowstorms followed her campaigns; some said the cold answered her breath.
+
+### Combat Style
+- Dual-blade specialist (short sword + longsword).
+- Defensive movement with minimal wasted motion.
+- Prefers frontal confrontation—no theatrics.
+- Never retreats, but never chases.
+- She fights like winter: inevitable, quiet, and absolute.
+
+### Personality
+- Calm, observant, unreadable.
+- Not cruel—but utterly decisive.
+- Speaks little; when she does, people listen.
+- Protects civilians instinctively.
+- Carries quiet guilt, not regret.
+- She does not seek redemption; she seeks balance.
+
+### Symbolism
+- Snow — silence after chaos.
+- Silver armor — truth, clarity, restraint.
+- Fur mantle — survival, not luxury.
+- Blue gemstones — frozen resolve.
+- Her presence lowers voices in a room.
+
+### Legendary Quote
+> “If I stand before you, the war is already over.”
