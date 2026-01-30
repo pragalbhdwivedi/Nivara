@@ -67,6 +67,57 @@ The White Silence (used by enemies—because when she arrives, battles end witho
 ### Legendary Quote
 > “If I stand before you, the war is already over.”
 
+## A Short Myth / Song of Pranish
+(folk-ballad style; sung in taverns and by soldiers who don’t like remembering)
+
+They say the North has many winters,
+and each one has a name—
+but there is one that walks on footsteps
+and answers to no flame.
+
+No banner rides behind her,
+no horn admits her near,
+yet every war grows quiet
+when Pranish draws her steel-clear.
+
+**Chorus**
+Hush now, hush—let the snow descend,
+Let iron learn to bend,
+For where her shadow crosses ground,
+The fighting meets its end.
+
+A king once bought ten thousand blades,
+to break the mountain pass;
+Pranish came with two small swords
+and turned his gold to glass.
+
+She did not take his crown away,
+she did not crave his throne—
+she took the need for any king
+to claim the dead as own.
+
+**Chorus**
+Hush now, hush—let the snow descend,
+Let iron learn to bend,
+For where her shadow crosses ground,
+The fighting meets its end.
+
+Some swear she’s sworn to winter gods,
+some swear she’s winter’s bride;
+some say the storm is only fear
+that follows where she strides.
+
+But mothers light a candle
+when the roads are red with stain,
+and whisper, “White Silence, hear us—
+send her steps like falling rain.”
+
+**Final Chorus**
+Hush now, hush—let the snow descend,
+Let iron learn to bend,
+For where her name is spoken low,
+The war will break… and end.
+
 ## First Appearance Scene
 Snow should not have been falling in the valley of Ash-Tyr. The mapmakers swore this place was dust and stone—an old wound in the world where nothing clean could survive.
 
