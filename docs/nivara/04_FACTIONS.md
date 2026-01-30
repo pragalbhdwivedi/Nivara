@@ -1,0 +1,25 @@
+# Factions
+
+## The White Court (Frost)
+- **Leader type**: A council of women called the Veil-Mothers.
+- **Methods**: Rule with permission to end things; deny wars by refusing “winter passage” through mountain routes; appoint agents called Silencers.
+- **Attitude toward Pranish**: She is not their servant, but their most feared myth.
+- **Symbol**: Crescent moon + crossed blades + snowgem.
+
+## The Iron Sanctum (Law)
+- **Leader type**: Lady-Architects who build cities like machines.
+- **Methods**: Enforce contracts with literal binding magic; build and maintain fortress-metropolises.
+- **Attitude toward Pranish**: They despise her for ignoring authority and seek to capture her to “codify” winter.
+- **Symbol**: A key inside a fortress.
+
+## The Blood Choir (Prophecy)
+- **Leader type**: A sisterhood of seers.
+- **Methods**: Sing futures into being; bless or doom rulers through song.
+- **Attitude toward Pranish**: She is a “blank verse” in the world’s story, outside prophecy, which terrifies them.
+- **Symbol**: Red thread woven into a crown.
+
+## The Ash Dominion (Frenzy)
+- **Leader type**: Maalkor and his Ash-Brides (war-oracles crowned in soot and gold).
+- **Methods**: Turn grief into riots; make peace feel humiliating; erase names from memory to create “ghost wars.”
+- **Attitude toward Pranish**: Opposes her as the end of wars, favoring conflict and frenzy instead.
+- **Symbol**: Black spiral ember.
