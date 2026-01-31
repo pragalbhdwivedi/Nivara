@@ -1,24 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("nivara_pages");
+const arcsDoc = pages.find((page) => page.id === "08_STORY_ARCS");
+
+if (!arcsDoc) {
+  throw new Error("Missing story arcs markdown.");
+}
+
+const { Content } = await arcsDoc.render();
 ---
 
 <BaseLayout title="Nivara | Story Arcs">
   <section>
     <h1>Story Arcs</h1>
-    <p>Structural outlines for the saga are staged here, ready for arc summaries and milestones.</p>
   </section>
 
-  <section>
-    <h2>Arc staging</h2>
-    <ul>
-      <li>Opening act</li>
-      <li>Rising conflicts</li>
-      <li>Climactic shifts</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/symbols">Next: Symbols →</a></p>
-  </section>
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
 </BaseLayout>

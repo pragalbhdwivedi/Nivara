@@ -1,14 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
 import ThreeIsland from "../components/ThreeIsland.astro";
 import SigilScene from "../components/three/SigilScene.tsx";
+import { getCollection } from "astro:content";
+
+const symbols = await getCollection("symbols");
+const symbolsDoc = symbols.find((page) => page.id === "SYMBOLS_AND_SIGILS");
+
+if (!symbolsDoc) {
+  throw new Error("Missing symbols markdown.");
+}
+
+const { Content } = await symbolsDoc.render();
 ---
 
 <BaseLayout title="Nivara | Symbols">
   <section>
     <h1>Symbols</h1>
-    <p>Glyphs, sigils, and motifs will be organized here. This placeholder marks the symbolic atlas.</p>
   </section>
+
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
 
   <ThreeIsland
     title="Sigil Rotation"
@@ -17,9 +31,4 @@ import SigilScene from "../components/three/SigilScene.tsx";
   >
     <SigilScene client:only="react" />
   </ThreeIsland>
-
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/appendix">Next: Appendix →</a></p>
-  </section>
 </BaseLayout>
