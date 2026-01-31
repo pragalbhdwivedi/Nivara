@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/vamika/profile.svg"
+background_image: "/assets/nivara/characters/vamika/bg.svg"
+gallery:
+  - "/assets/nivara/characters/vamika/alt-1.svg"
+  - "/assets/nivara/characters/vamika/alt-2.svg"
+---
 # Matron-Echo Vamika
 
 ## Character Visual Sheet (4/8) — Matron-Echo Vamika

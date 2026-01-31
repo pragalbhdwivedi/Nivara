@@ -1,12 +1,20 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import CinematicDocLayout from "../layouts/CinematicDocLayout.astro";
 import { withBase } from "../utils/paths";
+
+const meta = {
+  background_image: "/assets/nivara/pages/not-found/bg.svg",
+  cover_image: "/assets/nivara/pages/not-found/hero.svg",
+  fx_preset: "ash-melt",
+  scene_3d: null,
+};
+const sections = [
+  {
+    html: `<p>This path is not part of the indexed canon. Return to the archive.</p><p><a href=\"${withBase(
+      "/"
+    )}\">Back to home</a></p>`,
+  },
+];
 ---
 
-<BaseLayout title="Nivara | Not Found" namespace="notfound">
-  <section>
-    <h1>Not Found</h1>
-    <p>This entry is not part of the indexed canon. Return to the archive.</p>
-    <a href={withBase("/")}>Back to home</a>
-  </section>
-</BaseLayout>
+<CinematicDocLayout title="Nivara | Lost in the Melt" heading="Lost in the Melt" sections={sections} meta={meta} />

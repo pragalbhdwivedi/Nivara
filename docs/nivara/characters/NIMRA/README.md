@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/nimra/profile.svg"
+background_image: "/assets/nivara/characters/nimra/bg.svg"
+gallery:
+  - "/assets/nivara/characters/nimra/alt-1.svg"
+  - "/assets/nivara/characters/nimra/alt-2.svg"
+---
 # Nimra “Lockbreak” Kael
 
 ## Character Visual Sheet (3/8) — Nimra “Lockbreak” Kael

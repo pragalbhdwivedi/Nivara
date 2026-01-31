@@ -1,6 +1,7 @@
 ---
-import MarkdownPage from "../../layouts/MarkdownPage.astro";
+import CinematicDocLayout from "../../layouts/CinematicDocLayout.astro";
 import { getCanonCharacters, renderCanonMarkdown } from "../../utils/canon.js";
+import { withBase } from "../../utils/paths";
 
 export async function getStaticPaths() {
   const { characterEntries } = await getCanonCharacters();
@@ -12,8 +13,181 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { routeMap } = await getCanonCharacters();
-const { html, toc } = await renderCanonMarkdown(entry.filePath, routeMap);
+const { html, toc, data } = await renderCanonMarkdown(entry.filePath, routeMap);
 const title = `Nivara | ${entry.label}`;
+
+const profileImage = data?.profile_image ?? "/assets/nivara/placeholders/sigil.svg";
+const backgroundImage = data?.background_image ?? "/assets/nivara/placeholders/sigil.svg";
+const galleryImages = Array.isArray(data?.gallery) ? data.gallery : [];
+const quickFacts = toc.filter((item) => item.level === 2);
+const meta = {
+  background_image: backgroundImage,
+  cover_image: profileImage,
+  fx_preset: data?.fx_preset ?? "lantern-bloom",
+  scene_3d: data?.scene_3d ?? null,
+};
 ---
 
-<MarkdownPage title={title} heading={entry.label} sections={[{ html }]} toc={toc} />
+<CinematicDocLayout title={title} heading={entry.label} sections={[{ html }]} toc={toc} meta={meta}>
+  <div slot="after" class="character-profile">
+    <div class="character-profile__panel">
+      <div class="character-profile__portrait">
+        <img src={withBase(profileImage)} alt={`${entry.label} portrait`} loading="lazy" />
+      </div>
+      <div>
+        <h2>Profile</h2>
+        <p>Canonical dossier sourced from the world bible.</p>
+      </div>
+    </div>
+    {quickFacts.length > 0 && (
+      <div class="character-profile__facts">
+        <h3>Quick Facts</h3>
+        <ul>
+          {quickFacts.map((item) => (
+            <li><a href={`#${item.slug}`}>{item.text}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+
+  {galleryImages.length > 0 && (
+    <div slot="after" class="character-gallery">
+      <h3>Gallery</h3>
+      <div class="character-gallery__grid">
+        {galleryImages.map((src) => (
+          <button class="character-gallery__item" type="button" data-gallery-src={withBase(src)}>
+            <img src={withBase(src)} alt={`${entry.label} gallery`} loading="lazy" />
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <dialog slot="after" class="lightbox" aria-label="Image preview">
+    <button class="lightbox__close" type="button">Close</button>
+    <img class="lightbox__image" alt="" />
+  </dialog>
+
+  <script slot="after">
+    const dialog = document.querySelector(".lightbox");
+    const image = dialog?.querySelector(".lightbox__image");
+    const closeButton = dialog?.querySelector(".lightbox__close");
+
+    document.querySelectorAll("[data-gallery-src]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!dialog || !image) return;
+        const src = button.getAttribute("data-gallery-src");
+        if (!src) return;
+        image.setAttribute("src", src);
+        dialog.showModal();
+      });
+    });
+
+    closeButton?.addEventListener("click", () => dialog?.close());
+    dialog?.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+  </script>
+</CinematicDocLayout>
+
+<style>
+  .character-profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .character-profile__panel {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 12, 18, 0.7);
+  }
+
+  .character-profile__portrait {
+    width: 110px;
+    height: 110px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 25px rgba(5, 6, 12, 0.5);
+  }
+
+  .character-profile__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .character-profile__facts {
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 12, 18, 0.7);
+  }
+
+  .character-profile__facts ul {
+    margin: 0.75rem 0 0;
+    padding-left: 1rem;
+  }
+
+  .character-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .character-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .character-gallery__item {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .character-gallery__item img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .lightbox {
+    border: none;
+    padding: 1.5rem;
+    background: rgba(5, 6, 12, 0.95);
+    border-radius: 18px;
+    color: #f0f2ff;
+  }
+
+  .lightbox::backdrop {
+    background: rgba(5, 6, 12, 0.8);
+  }
+
+  .lightbox__image {
+    max-width: min(80vw, 900px);
+    max-height: 70vh;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .lightbox__close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f2ff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+  }
+</style>

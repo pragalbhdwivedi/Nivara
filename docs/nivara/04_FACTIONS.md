@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/factions/hero.svg"
+background_image: "/assets/nivara/pages/factions/bg.svg"
+fx_preset: "ember-veil"
+scene_3d: null
+---
 # Factions
 
 ## The White Court (Frost)

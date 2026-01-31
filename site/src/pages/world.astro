@@ -1,9 +1,9 @@
 ---
-import MarkdownPage from "../layouts/MarkdownPage.astro";
+import CinematicDocLayout from "../layouts/CinematicDocLayout.astro";
 import { getCanonRoute } from "../utils/canon.js";
 
 const route = "/world";
-const { title, sections, toc } = await getCanonRoute(route);
+const { title, sections, toc, meta } = await getCanonRoute(route);
 ---
 
-<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} />
+<CinematicDocLayout title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} meta={meta} />

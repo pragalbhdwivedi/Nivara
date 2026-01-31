@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/appendix/hero.svg"
+background_image: "/assets/nivara/pages/appendix/bg.svg"
+fx_preset: "shadow-veil"
+scene_3d: null
+---
 # Appendix — Story Excerpts
 
 ## Pranish — First Appearance Scene

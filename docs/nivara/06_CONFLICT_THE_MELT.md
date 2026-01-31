@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/the-melt/hero.svg"
+background_image: "/assets/nivara/pages/the-melt/bg.svg"
+fx_preset: "ash-melt"
+scene_3d: "lantern"
+---
 # Central Conflict: The Melt
 
 ## What The Melt Is

@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/sairi/profile.svg"
+background_image: "/assets/nivara/characters/sairi/bg.svg"
+gallery:
+  - "/assets/nivara/characters/sairi/alt-1.svg"
+  - "/assets/nivara/characters/sairi/alt-2.svg"
+---
 # Lady Sairi of the Veil
 
 ## Character Visual Sheet (2/8) — Lady Sairi of the Veil

@@ -140,6 +140,12 @@ const renderMarkdownFile = async (filePath, routeMap) => {
   return { html, data, toc };
 };
 
+const readFrontmatter = async (filePath) => {
+  const raw = await fs.readFile(filePath, "utf-8");
+  const { data } = matter(raw);
+  return data ?? {};
+};
+
 const loadCanonIndex = async () => {
   if (canonCache) {
     return canonCache;
@@ -255,8 +261,12 @@ export const getCanonRoute = async (route) => {
   }
   const sections = [];
   let toc = [];
+  let meta = {};
   for (const docPath of docs) {
     const rendered = await renderMarkdownFile(docPath, routeMap);
+    if (Object.keys(meta).length === 0 && rendered.data && Object.keys(rendered.data).length > 0) {
+      meta = rendered.data;
+    }
     sections.push({ ...rendered, sourcePath: docPath });
     toc = toc.concat(rendered.toc);
   }
@@ -265,6 +275,7 @@ export const getCanonRoute = async (route) => {
     title: ROUTE_LABELS.get(route) ?? "Canon",
     sections,
     toc,
+    meta,
   };
 };
 
@@ -278,6 +289,19 @@ export const getCanonCharacters = async () => {
 export const renderCanonMarkdown = async (filePath, routeMap) => renderMarkdownFile(filePath, routeMap);
 
 export const getCanonCharactersIndexPath = () => CHARACTERS_INDEX_PATH;
+
+export const getCanonCharacterProfiles = async () => {
+  const { characterEntries } = await loadCanonIndex();
+  const profiles = await Promise.all(
+    characterEntries.map(async (entry) => {
+      const data = await readFrontmatter(entry.filePath);
+      return { ...entry, data };
+    })
+  );
+  return profiles;
+};
+
+export const readCanonFrontmatter = async (filePath) => readFrontmatter(filePath);
 
 export const getCanonValidationSummary = async () => {
   const { routeDocs, characterEntries } = await loadCanonIndex();

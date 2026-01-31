@@ -1,10 +1,114 @@
 ---
-import MarkdownPage from "../../layouts/MarkdownPage.astro";
-import { getCanonCharacters, getCanonCharactersIndexPath, renderCanonMarkdown } from "../../utils/canon.js";
+import CinematicDocLayout from "../../layouts/CinematicDocLayout.astro";
+import { getCanonCharacterProfiles, getCanonCharacters, getCanonCharactersIndexPath, renderCanonMarkdown } from "../../utils/canon.js";
+import { withBase } from "../../utils/paths";
 
 const { routeMap } = await getCanonCharacters();
 const indexPath = getCanonCharactersIndexPath();
-const { html, toc } = await renderCanonMarkdown(indexPath, routeMap);
+const { html, toc, data: meta } = await renderCanonMarkdown(indexPath, routeMap);
+const profiles = await getCanonCharacterProfiles();
+const placeholderImage = "/assets/nivara/placeholders/sigil.svg";
 ---
 
-<MarkdownPage title="Nivara | Characters" heading="Characters" sections={[{ html }]} toc={toc} />
+<CinematicDocLayout title="Nivara | Characters" heading="Characters" sections={[{ html }]} toc={toc} meta={meta}>
+  <div slot="after" class="character-grid">
+    {profiles.map((entry) => {
+      const profileImage = entry.data?.profile_image ?? placeholderImage;
+      const backgroundImage = entry.data?.background_image ?? placeholderImage;
+      return (
+        <a class="character-card" href={withBase(entry.route)}>
+          <div
+            class="character-card__bg"
+            style={`background-image: url(${withBase(backgroundImage)});`}
+            aria-hidden="true"
+          ></div>
+          <div class="character-card__content">
+            <div class="character-card__portrait">
+              <img src={withBase(profileImage)} alt={`${entry.label} portrait`} loading="lazy" />
+            </div>
+            <div>
+              <p class="character-card__name">{entry.label}</p>
+              <p class="character-card__meta">Canon dossier</p>
+            </div>
+          </div>
+        </a>
+      );
+    })}
+  </div>
+</CinematicDocLayout>
+
+<style>
+  .character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .character-card {
+    position: relative;
+    display: block;
+    padding: 1.5rem;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(8, 10, 16, 0.65);
+    color: inherit;
+    min-height: 180px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .character-card__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.45);
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+
+  .character-card__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .character-card__portrait {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 18px rgba(5, 6, 12, 0.5);
+    background: rgba(10, 12, 18, 0.8);
+  }
+
+  .character-card__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .character-card__name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f0f2ff;
+  }
+
+  .character-card__meta {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: rgba(210, 220, 255, 0.6);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .character-card:hover,
+  .character-card:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(5, 6, 12, 0.6);
+  }
+</style>

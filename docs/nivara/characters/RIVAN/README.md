@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/rivan/profile.svg"
+background_image: "/assets/nivara/characters/rivan/bg.svg"
+gallery:
+  - "/assets/nivara/characters/rivan/alt-1.svg"
+  - "/assets/nivara/characters/rivan/alt-2.svg"
+---
 # Rivan of the Hollow Lantern
 
 ## Character Visual Sheet (Bonus) — Rivan of the Hollow Lantern

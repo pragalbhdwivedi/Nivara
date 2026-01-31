@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/odria/profile.svg"
+background_image: "/assets/nivara/characters/odria/bg.svg"
+gallery:
+  - "/assets/nivara/characters/odria/alt-1.svg"
+  - "/assets/nivara/characters/odria/alt-2.svg"
+---
 # Warden-Captain Odria Vale
 
 ## Character Visual Sheet (7/8) — Warden-Captain Odria Vale

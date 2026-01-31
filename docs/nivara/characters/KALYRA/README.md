@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/kalyra/profile.svg"
+background_image: "/assets/nivara/characters/kalyra/bg.svg"
+gallery:
+  - "/assets/nivara/characters/kalyra/alt-1.svg"
+  - "/assets/nivara/characters/kalyra/alt-2.svg"
+---
 # Ash-Bride Kalyra
 
 ## Character Visual Sheet (8/8) — Ash-Bride Kalyra

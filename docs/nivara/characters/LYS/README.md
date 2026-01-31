@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/lys/profile.svg"
+background_image: "/assets/nivara/characters/lys/bg.svg"
+gallery:
+  - "/assets/nivara/characters/lys/alt-1.svg"
+  - "/assets/nivara/characters/lys/alt-2.svg"
+---
 # Arch-Architect Lys Marrow
 
 ## Character Visual Sheet (6/8) — Arch-Architect Lys Marrow

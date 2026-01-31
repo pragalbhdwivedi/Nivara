@@ -1,17 +1,9 @@
 ---
-import MarkdownPage from "../layouts/MarkdownPage.astro";
-import Sigil3DIsland from "../components/Sigil3DIsland.astro";
-import SigilOverlay from "../components/SigilOverlay.astro";
+import CinematicDocLayout from "../layouts/CinematicDocLayout.astro";
 import { getCanonRoute } from "../utils/canon.js";
 
 const route = "/symbols";
-const { title, sections, toc } = await getCanonRoute(route);
+const { title, sections, toc, meta } = await getCanonRoute(route);
 ---
 
-<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc}>
-  <div slot="lead">
-    <SigilOverlay enabled={true} />
-    <SigilOverlay />
-    <Sigil3DIsland />
-  </div>
-</MarkdownPage>
+<CinematicDocLayout title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} meta={meta} />

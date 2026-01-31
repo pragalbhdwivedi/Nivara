@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/story-arcs/hero.svg"
+background_image: "/assets/nivara/pages/story-arcs/bg.svg"
+fx_preset: "sigil-veil"
+scene_3d: null
+---
 # Story Arcs
 
 ## Core Arcs
