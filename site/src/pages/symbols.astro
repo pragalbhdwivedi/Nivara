@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SigilOverlay from "../components/SigilOverlay.astro";
 import ThreeIsland from "../components/ThreeIsland.astro";
 import SigilScene from "../components/three/SigilScene.tsx";
 ---
 
-<BaseLayout title="Nivara | Symbols">
+<BaseLayout title="Nivara | Symbols" namespace="symbols">
+  <SigilOverlay enabled={true} />
   <section>
     <h1>Symbols</h1>
     <p>Glyphs, sigils, and motifs will be organized here. This placeholder marks the symbolic atlas.</p>

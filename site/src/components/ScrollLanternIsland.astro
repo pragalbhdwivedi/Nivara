@@ -1,0 +1,41 @@
+---
+import LanternScene from "./three/LanternScene";
+---
+
+<section class="lantern" data-lantern-section>
+  <div class="lantern__frame">
+    <LanternScene client:only="react" />
+  </div>
+</section>
+
+<style>
+  .lantern {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: rgba(9, 11, 20, 0.75);
+    padding: 1.25rem;
+    min-height: 360px;
+  }
+
+  .lantern__frame {
+    height: min(420px, 60vh);
+    border-radius: 12px;
+    overflow: hidden;
+    background: radial-gradient(circle at top, rgba(70, 86, 120, 0.3), transparent 70%);
+  }
+
+  .lantern__frame :global(canvas) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  @media (max-width: 720px) {
+    .lantern {
+      padding: 1rem;
+    }
+
+    .lantern__frame {
+      height: 320px;
+    }
+  }
+</style>
