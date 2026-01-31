@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../utils/paths";
+---
+
+<BaseLayout title="Nivara | Characters">
+  <section>
+    <h1>Characters</h1>
+    <p>The cast will be assembled here, with dossiers that link to factions, power styles, and story arcs.</p>
+  </section>
+
+  <section>
+    <h2>Dossier framework</h2>
+    <ul>
+      <li>Primary protagonists</li>
+      <li>Allies and antagonists</li>
+      <li>Motivations and turning points</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Continue</h2>
+    <p><a href={withBase("/story-arcs/")}>Next: Story Arcs →</a></p>
+  </section>
+</BaseLayout>
