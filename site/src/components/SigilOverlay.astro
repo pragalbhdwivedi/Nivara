@@ -1,83 +1,15 @@
----
-interface Props {
-  enabled?: boolean;
-  progress?: number;
-  size?: number;
-  opacity?: number;
-}
-
-const {
-  enabled = false,
-  progress,
-  size = 220,
-  opacity = 0.35,
-} = Astro.props;
-
-const styleVars = [
-  `--sigil-size: ${size}px`,
-  `--sigil-opacity: ${opacity}`,
-  progress !== undefined ? `--sigil-progress: ${progress}` : null,
-]
-  .filter(Boolean)
-  .join("; ");
----
-
-{enabled && (
-  <div class="sigil" style={styleVars} aria-hidden="true">
-    <svg viewBox="0 0 220 220" role="presentation" focusable="false">
-      <path d="M110 20 L170 60 L170 140 L110 200 L50 140 L50 60 Z" />
-      <path d="M110 20 L110 200" />
-      <path d="M50 60 L170 140" />
-      <path d="M170 60 L50 140" />
-      <circle cx="110" cy="110" r="22" />
-    </svg>
-  </div>
-)}
+<section class="sigil-overlay" aria-hidden="true">
+  <div class="sigil-overlay__line"></div>
+</section>
 
 <style>
-  .sigil {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: var(--sigil-size);
-    height: var(--sigil-size);
-    opacity: var(--sigil-opacity);
-    pointer-events: none;
-    z-index: 20;
+  .sigil-overlay {
+    margin: 1.5rem 0;
   }
 
-  .sigil svg {
+  .sigil-overlay__line {
+    height: 1px;
     width: 100%;
-    height: 100%;
-  }
-
-  .sigil path,
-  .sigil circle {
-    fill: none;
-    stroke: rgba(232, 234, 249, 0.75);
-    stroke-width: 2.4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    --sigil-length: 900;
-    stroke-dasharray: var(--sigil-length);
-    stroke-dashoffset: calc(var(--sigil-length) * (1 - var(--sigil-progress, 0)));
-    transition: stroke-dashoffset 0.3s ease;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .sigil path,
-    .sigil circle {
-      stroke-dashoffset: 0;
-      transition: none;
-    }
-  }
-
-  @media (max-width: 720px) {
-    .sigil {
-      top: 1rem;
-      right: 1rem;
-      width: calc(var(--sigil-size) * 0.75);
-      height: calc(var(--sigil-size) * 0.75);
-    }
+    background: linear-gradient(90deg, transparent, rgba(140, 150, 200, 0.35), transparent);
   }
 </style>
