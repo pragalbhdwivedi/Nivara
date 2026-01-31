@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
+---
+
+<BaseLayout title="Nivara | World">
+  <section>
+    <h1>World</h1>
+    <p>Survey the geography, climates, and thresholds that define the realm. Placeholder sections outline the atlas to come.</p>
+  </section>
+
+  <section>
+    <h2>Atlas staging</h2>
+    <ul>
+      <li>Regions and landmarks</li>
+      <li>Realm-scale phenomena</li>
+      <li>Travel routes and boundaries</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Continue</h2>
+    <p><a href={withBase("/power/")}>Next: Power rituals →</a></p>
+  </section>
+</BaseLayout>
