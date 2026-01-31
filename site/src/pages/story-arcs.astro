@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
+---
+
+<BaseLayout title="Nivara | Story Arcs">
+  <section>
+    <h1>Story Arcs</h1>
+    <p>Structural outlines for the saga are staged here, ready for arc summaries and milestones.</p>
+  </section>
+
+  <section>
+    <h2>Arc staging</h2>
+    <ul>
+      <li>Opening act</li>
+      <li>Rising conflicts</li>
+      <li>Climactic shifts</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Continue</h2>
+    <p><a href={withBase("/symbols/")}>Next: Symbols →</a></p>
+  </section>
+</BaseLayout>
