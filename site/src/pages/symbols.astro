@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CanonMarkdown from "../components/CanonMarkdown.astro";
-import ThreeIsland from "../components/ThreeIsland.astro";
-import SigilScene from "../components/three/SigilScene.tsx";
+import Sigil3DIsland from "../components/Sigil3DIsland.astro";
+import SigilOverlay from "../components/SigilOverlay.astro";
 import { getCollection } from "astro:content";
 
 const symbols = await getCollection("symbols");
@@ -20,15 +20,10 @@ const { Content } = await symbolsDoc.render();
     <h1>Symbols</h1>
   </section>
 
+  <SigilOverlay />
+  <Sigil3DIsland />
+
   <CanonMarkdown>
     <Content />
   </CanonMarkdown>
-
-  <ThreeIsland
-    title="Sigil Rotation"
-    description="A ritual glyph placeholder that will later map to factions and rites."
-    componentName="SigilScene"
-  >
-    <SigilScene client:only="react" />
-  </ThreeIsland>
 </BaseLayout>
