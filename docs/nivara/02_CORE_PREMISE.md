@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/world/hero.svg"
+background_image: "/assets/nivara/pages/world/bg.svg"
+fx_preset: "lantern-bloom"
+scene_3d: "worldmap"
+---
 # Core Premise
 
 ## Winter Chooses Champions

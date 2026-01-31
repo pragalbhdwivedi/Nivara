@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/power/hero.svg"
+background_image: "/assets/nivara/pages/power/bg.svg"
+fx_preset: "oathfire"
+scene_3d: "lantern"
+---
 # Power Structure (Female-Led)
 
 ## Why Legitimacy Flows Through Women

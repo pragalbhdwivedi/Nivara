@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "validate:canon": "node scripts/validate-canon.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.0",
@@ -16,6 +17,9 @@
     "astro": "^4.15.0",
     "gsap": "^3.12.5",
     "lenis": "^1.1.14",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^8.6.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "three": "^0.168.0"

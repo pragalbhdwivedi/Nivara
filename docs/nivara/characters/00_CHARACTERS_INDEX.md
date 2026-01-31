@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/characters/hero.svg"
+background_image: "/assets/nivara/pages/characters/bg.svg"
+fx_preset: "lantern-bloom"
+scene_3d: null
+---
 # Characters
 
 This index lists canon character pages and visual sheets.

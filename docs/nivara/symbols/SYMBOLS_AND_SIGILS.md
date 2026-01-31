@@ -1,3 +1,9 @@
+---
+cover_image: "/assets/nivara/pages/symbols/hero.svg"
+background_image: "/assets/nivara/pages/symbols/bg.svg"
+fx_preset: "sigil-veil"
+scene_3d: "sigil"
+---
 # Symbols and Sigils
 
 ## Faction Symbols

@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/ilya/profile.svg"
+background_image: "/assets/nivara/characters/ilya/bg.svg"
+gallery:
+  - "/assets/nivara/characters/ilya/alt-1.svg"
+  - "/assets/nivara/characters/ilya/alt-2.svg"
+---
 # Sergeant Ilya Rane
 
 ## Character Visual Sheet (5/8) — Sergeant Ilya Rane

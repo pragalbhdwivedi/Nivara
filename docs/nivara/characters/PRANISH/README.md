@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/pranish/profile.svg"
+background_image: "/assets/nivara/characters/pranish/bg.svg"
+gallery:
+  - "/assets/nivara/characters/pranish/alt-1.svg"
+  - "/assets/nivara/characters/pranish/alt-2.svg"
+---
 # Pranish
 
 ## Role

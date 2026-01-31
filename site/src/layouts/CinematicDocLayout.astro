@@ -1,0 +1,363 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
+import WorldLayer from "../components/WorldLayer.tsx";
+import { withBase } from "../utils/paths";
+
+const {
+  title,
+  heading,
+  sections = [],
+  toc = [],
+  meta = {},
+  fallbackBackground = "/assets/nivara/pages/world/bg.svg",
+} = Astro.props;
+
+const backgroundImage = meta.background_image ?? fallbackBackground;
+const heroImage = meta.cover_image ?? null;
+const overlayImage = meta.overlay_image ?? null;
+const fxPreset = meta.fx_preset ?? "lantern-bloom";
+const scene3d = meta.scene_3d ?? null;
+
+const FX_PRESETS = {
+  "lantern-bloom": {
+    tint: "rgba(140, 170, 255, 0.22)",
+    fog: 0.4,
+    grain: 0.25,
+    vignette: 0.6,
+    glow: 0.35,
+  },
+  "ash-melt": {
+    tint: "rgba(255, 120, 80, 0.2)",
+    fog: 0.6,
+    grain: 0.35,
+    vignette: 0.7,
+    glow: 0.25,
+  },
+  "oathfire": {
+    tint: "rgba(255, 190, 120, 0.25)",
+    fog: 0.35,
+    grain: 0.2,
+    vignette: 0.5,
+    glow: 0.45,
+  },
+  "sigil-veil": {
+    tint: "rgba(140, 200, 255, 0.18)",
+    fog: 0.3,
+    grain: 0.2,
+    vignette: 0.55,
+    glow: 0.3,
+  },
+  "ember-veil": {
+    tint: "rgba(255, 150, 90, 0.2)",
+    fog: 0.45,
+    grain: 0.3,
+    vignette: 0.6,
+    glow: 0.25,
+  },
+  "shadow-veil": {
+    tint: "rgba(90, 120, 180, 0.18)",
+    fog: 0.5,
+    grain: 0.25,
+    vignette: 0.75,
+    glow: 0.2,
+  },
+};
+
+const fx = FX_PRESETS[fxPreset] ?? FX_PRESETS["lantern-bloom"];
+const fogImage = withBase("/assets/nivara/fx/fog.svg");
+const grainImage = withBase("/assets/nivara/fx/grain.svg");
+const vignetteImage = withBase("/assets/nivara/fx/vignette.svg");
+const particleImage = withBase("/assets/nivara/fx/scratches.svg");
+const fxStyle = {
+  "--fx-tint": fx.tint,
+  "--fx-fog": fx.fog,
+  "--fx-grain": fx.grain,
+  "--fx-vignette": fx.vignette,
+  "--fx-glow": fx.glow,
+};
+---
+
+<BaseLayout title={title}>
+  <div class="cinematic" style={fxStyle}>
+    <div
+      class="cinematic__bg"
+      style={`background-image: url(${withBase(backgroundImage)});`}
+      aria-hidden="true"
+    ></div>
+    <div class="cinematic__tint" aria-hidden="true"></div>
+    <div class="cinematic__fog" style={`background-image: url(${fogImage});`} aria-hidden="true"></div>
+    <div class="cinematic__grain" style={`background-image: url(${grainImage});`} aria-hidden="true"></div>
+    <div class="cinematic__vignette" style={`background-image: url(${vignetteImage});`} aria-hidden="true"></div>
+    <div class="cinematic__particles" style={`background-image: url(${particleImage});`} aria-hidden="true"></div>
+    {overlayImage && (
+      <div
+        class="cinematic__overlay"
+        style={`background-image: url(${withBase(overlayImage)});`}
+        aria-hidden="true"
+      ></div>
+    )}
+
+    <section class="cinematic__hero">
+      <div class="cinematic__hero-text">
+        <p class="cinematic__eyebrow">World Atlas</p>
+        <h1>{heading}</h1>
+      </div>
+      {heroImage && (
+        <div class="cinematic__hero-image" aria-hidden="true">
+          <img src={withBase(heroImage)} alt="" loading="lazy" />
+        </div>
+      )}
+      {scene3d && (
+        <div class="cinematic__hero-3d">
+          <WorldLayer scene={scene3d} client:only="react" />
+        </div>
+      )}
+    </section>
+
+    <div class="cinematic__content">
+      <div class="cinematic__body">
+        {sections.map((section) => (
+          <CanonMarkdown>
+            <div set:html={section.html} />
+          </CanonMarkdown>
+        ))}
+        <slot name="after" />
+      </div>
+      {toc.length > 0 && (
+        <aside class="cinematic__toc">
+          <h2>On this page</h2>
+          <ul>
+            {toc.map((item) => (
+              <li class={`level-${item.level}`}>
+                <a href={`#${item.slug}`}>{item.text}</a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .cinematic {
+    position: relative;
+    padding: 2rem 0 4rem;
+    min-height: 60vh;
+  }
+
+  .cinematic__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.8) brightness(0.55);
+    opacity: 0.9;
+    animation: drift 48s ease-in-out infinite;
+    transform: scale(1.04);
+  }
+
+  .cinematic__tint,
+  .cinematic__fog,
+  .cinematic__grain,
+  .cinematic__vignette,
+  .cinematic__particles,
+  .cinematic__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cinematic__tint {
+    background: radial-gradient(circle at top left, rgba(10, 12, 20, 0.4), rgba(8, 10, 16, 0.85)),
+      var(--fx-tint);
+    mix-blend-mode: screen;
+    opacity: 0.7;
+  }
+
+  .cinematic__fog {
+    opacity: var(--fx-fog);
+    mix-blend-mode: screen;
+    animation: fog 60s ease-in-out infinite;
+  }
+
+  .cinematic__grain {
+    opacity: var(--fx-grain);
+    mix-blend-mode: soft-light;
+  }
+
+  .cinematic__vignette {
+    opacity: var(--fx-vignette);
+    mix-blend-mode: multiply;
+  }
+
+  .cinematic__particles {
+    opacity: 0.25;
+    mix-blend-mode: screen;
+    animation: drift 80s ease-in-out infinite;
+  }
+
+  .cinematic__overlay {
+    opacity: 0.45;
+    mix-blend-mode: screen;
+  }
+
+  .cinematic__hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    gap: 2rem;
+    padding: 2.5rem 0 2rem;
+    align-items: center;
+  }
+
+  .cinematic__hero-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cinematic__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.75rem;
+    color: rgba(210, 220, 255, 0.6);
+    margin: 0 0 0.75rem;
+  }
+
+  .cinematic__hero-text h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    color: #f5f7ff;
+  }
+
+  .cinematic__hero-image {
+    position: relative;
+    z-index: 2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px rgba(5, 6, 12, 0.6), 0 0 40px rgba(140, 170, 255, var(--fx-glow));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    aspect-ratio: 16 / 10;
+  }
+
+  .cinematic__hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.9);
+  }
+
+  .cinematic__hero-3d {
+    position: relative;
+    z-index: 2;
+    height: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(8, 10, 16, 0.6);
+    box-shadow: 0 18px 40px rgba(5, 6, 12, 0.7), 0 0 32px rgba(140, 170, 255, var(--fx-glow));
+  }
+
+  .cinematic__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .cinematic__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background: rgba(7, 9, 15, 0.72);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(4, 5, 10, 0.6), 0 0 32px rgba(140, 170, 255, var(--fx-glow));
+  }
+
+  .cinematic__toc {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(12, 14, 24, 0.75);
+    font-size: 0.9rem;
+  }
+
+  .cinematic__toc h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+  }
+
+  .cinematic__toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .cinematic__toc li.level-3 {
+    padding-left: 0.75rem;
+  }
+
+  .cinematic__toc li.level-4 {
+    padding-left: 1.2rem;
+  }
+
+  .cinematic__toc a {
+    color: #a9baff;
+  }
+
+  @media (max-width: 980px) {
+    .cinematic__hero {
+      grid-template-columns: 1fr;
+    }
+
+    .cinematic__content {
+      grid-template-columns: 1fr;
+    }
+
+    .cinematic__toc {
+      position: static;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .cinematic__body {
+      padding: 1.5rem;
+    }
+  }
+
+  @keyframes drift {
+    0% {
+      background-position: 50% 45%;
+    }
+    50% {
+      background-position: 52% 50%;
+    }
+    100% {
+      background-position: 50% 45%;
+    }
+  }
+
+  @keyframes fog {
+    0% {
+      transform: translate3d(-2%, -1%, 0);
+    }
+    50% {
+      transform: translate3d(2%, 1%, 0);
+    }
+    100% {
+      transform: translate3d(-2%, -1%, 0);
+    }
+  }
+</style>

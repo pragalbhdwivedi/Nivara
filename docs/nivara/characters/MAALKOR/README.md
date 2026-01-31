@@ -1,3 +1,10 @@
+---
+profile_image: "/assets/nivara/characters/maalkor/profile.svg"
+background_image: "/assets/nivara/characters/maalkor/bg.svg"
+gallery:
+  - "/assets/nivara/characters/maalkor/alt-1.svg"
+  - "/assets/nivara/characters/maalkor/alt-2.svg"
+---
 # Maalkor
 
 ## Role
