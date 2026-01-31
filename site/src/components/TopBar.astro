@@ -1,22 +1,16 @@
 ---
-const links = [
-  { href: "/world", label: "World" },
-  { href: "/power", label: "Power" },
-  { href: "/the-melt", label: "The Melt" },
-  { href: "/factions", label: "Factions" },
-  { href: "/characters", label: "Characters" },
-  { href: "/story-arcs", label: "Story Arcs" },
-  { href: "/symbols", label: "Symbols" },
-  { href: "/appendix", label: "Appendix" },
-];
+import { getCanonNavigation } from "../utils/canon.js";
+import { withBase } from "../utils/paths";
+
+const links = await getCanonNavigation();
 ---
 
 <header class="topbar">
   <div class="topbar__inner">
-    <a class="topbar__brand" href="/">Nivara</a>
+    <a class="topbar__brand" href={withBase("/")}>Nivara</a>
     <nav class="topbar__nav">
       {links.map((link) => (
-        <a href={link.href}>{link.label}</a>
+        <a href={withBase(link.route)}>{link.label}</a>
       ))}
     </nav>
   </div>

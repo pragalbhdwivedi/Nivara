@@ -1,31 +1,19 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import CanonMarkdown from "../../components/CanonMarkdown.astro";
-import { getCollection } from "astro:content";
+import MarkdownPage from "../../layouts/MarkdownPage.astro";
+import { getCanonCharacters, renderCanonMarkdown } from "../../utils/canon.js";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("characters");
-
-  return entries.map((entry) => {
-    const folder = entry.id.split("/")[0];
-    return {
-      params: { slug: folder.toLowerCase() },
-      props: { entry, folder },
-    };
-  });
+  const { characterEntries } = await getCanonCharacters();
+  return characterEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-const { entry, folder } = Astro.props;
-const { Content } = await entry.render();
-const title = `Nivara | ${folder}`;
+const { entry } = Astro.props;
+const { routeMap } = await getCanonCharacters();
+const { html, toc } = await renderCanonMarkdown(entry.filePath, routeMap);
+const title = `Nivara | ${entry.label}`;
 ---
 
-<BaseLayout title={title}>
-  <section>
-    <h1>{folder}</h1>
-  </section>
-
-  <CanonMarkdown>
-    <Content />
-  </CanonMarkdown>
-</BaseLayout>
+<MarkdownPage title={title} heading={entry.label} sections={[{ html }]} toc={toc} />

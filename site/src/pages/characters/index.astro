@@ -1,24 +1,10 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import MarkdownPage from "../../layouts/MarkdownPage.astro";
+import { getCanonCharacters, getCanonCharactersIndexPath, renderCanonMarkdown } from "../../utils/canon.js";
+
+const { routeMap } = await getCanonCharacters();
+const indexPath = getCanonCharactersIndexPath();
+const { html, toc } = await renderCanonMarkdown(indexPath, routeMap);
 ---
 
-<BaseLayout title="Nivara | Characters" namespace="characters">
-  <section>
-    <h1>Characters</h1>
-    <p>The cast will be assembled here, with dossiers that link to factions, power styles, and story arcs.</p>
-  </section>
-
-  <section>
-    <h2>Dossier framework</h2>
-    <ul>
-      <li>Primary protagonists</li>
-      <li>Allies and antagonists</li>
-      <li>Motivations and turning points</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/story-arcs">Next: Story Arcs →</a></p>
-  </section>
-</BaseLayout>
+<MarkdownPage title="Nivara | Characters" heading="Characters" sections={[{ html }]} toc={toc} />

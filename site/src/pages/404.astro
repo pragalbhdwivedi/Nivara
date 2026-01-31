@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
 ---
 
 <BaseLayout title="Nivara | Not Found" namespace="notfound">
   <section>
     <h1>Not Found</h1>
-    <p>The lantern light does not reach this path. Return to the archive.</p>
-    <a href="/">Back to home</a>
+    <p>This entry is not part of the indexed canon. Return to the archive.</p>
+    <a href={withBase("/")}>Back to home</a>
   </section>
 </BaseLayout>

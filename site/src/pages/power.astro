@@ -1,24 +1,9 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import CanonMarkdown from "../components/CanonMarkdown.astro";
-import { getCollection } from "astro:content";
+import MarkdownPage from "../layouts/MarkdownPage.astro";
+import { getCanonRoute } from "../utils/canon.js";
 
-const pages = await getCollection("nivara_pages");
-const powerDoc = pages.find((page) => page.id === "03_MAGIC_SYSTEM_OATHS_ELEMENTS");
-
-if (!powerDoc) {
-  throw new Error("Missing power markdown.");
-}
-
-const { Content } = await powerDoc.render();
+const route = "/power";
+const { title, sections, toc } = await getCanonRoute(route);
 ---
 
-<BaseLayout title="Nivara | Power" namespace="power">
-  <section>
-    <h1>Power</h1>
-  </section>
-
-  <CanonMarkdown>
-    <Content />
-  </CanonMarkdown>
-</BaseLayout>
+<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} />

@@ -1,30 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import CanonMarkdown from "../components/CanonMarkdown.astro";
+import MarkdownPage from "../layouts/MarkdownPage.astro";
 import Sigil3DIsland from "../components/Sigil3DIsland.astro";
 import SigilOverlay from "../components/SigilOverlay.astro";
-import { getCollection } from "astro:content";
+import { getCanonRoute } from "../utils/canon.js";
 
-const symbols = await getCollection("symbols");
-const symbolsDoc = symbols.find((page) => page.id === "SYMBOLS_AND_SIGILS");
-
-if (!symbolsDoc) {
-  throw new Error("Missing symbols markdown.");
-}
-
-const { Content } = await symbolsDoc.render();
+const route = "/symbols";
+const { title, sections, toc } = await getCanonRoute(route);
 ---
 
-<BaseLayout title="Nivara | Symbols" namespace="symbols">
-  <SigilOverlay enabled={true} />
-  <section>
-    <h1>Symbols</h1>
-  </section>
-
-  <SigilOverlay />
-  <Sigil3DIsland />
-
-  <CanonMarkdown>
-    <Content />
-  </CanonMarkdown>
-</BaseLayout>
+<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc}>
+  <div slot="lead">
+    <SigilOverlay enabled={true} />
+    <SigilOverlay />
+    <Sigil3DIsland />
+  </div>
+</MarkdownPage>
