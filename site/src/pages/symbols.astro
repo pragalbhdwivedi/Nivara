@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ThreeIsland from "../components/ThreeIsland.astro";
+import SigilScene from "../components/three/SigilScene.tsx";
+---
+
+<BaseLayout title="Nivara | Symbols">
+  <section>
+    <h1>Symbols</h1>
+    <p>Glyphs, sigils, and motifs will be organized here. This placeholder marks the symbolic atlas.</p>
+  </section>
+
+  <ThreeIsland
+    title="Sigil Rotation"
+    description="A ritual glyph placeholder that will later map to factions and rites."
+    componentName="SigilScene"
+  >
+    <SigilScene client:only="react" />
+  </ThreeIsland>
+
+  <section>
+    <h2>Continue</h2>
+    <p><a href="/appendix/">Next: Appendix →</a></p>
+  </section>
+</BaseLayout>
