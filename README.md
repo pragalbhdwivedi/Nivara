@@ -14,4 +14,4 @@ npm install
 npm run dev
 ```
 
-For GitHub Pages builds, set `BASE_PATH` to the repository name (e.g., `/Nivara`).
+GitHub Pages deploys via Actions, with `BASE_PATH` set to the repository name (e.g., `/Nivara`).
