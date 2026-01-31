@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ThreeIsland from "../components/ThreeIsland.astro";
+import LanternScene from "../components/three/LanternScene.tsx";
+import { withBase } from "../utils/paths";
+---
+
+<BaseLayout title="Nivara | Invocation">
+  <section>
+    <h1>Invocation</h1>
+    <p>
+      Enter the threshold of Nivara. This is the staging ground for the world atlas, the rites of power, and the
+      unfolding story arcs.
+    </p>
+  </section>
+
+  <ThreeIsland
+    title="The Lantern Breath"
+    description="A living light that steadies the path. This island previews how ritual motion will guide exploration."
+    componentName="LanternScene"
+  >
+    <LanternScene client:only="react" />
+  </ThreeIsland>
+
+  <section>
+    <h2>Navigate the archive</h2>
+    <div class="grid">
+      <a href={withBase("/world/")}>World</a>
+      <a href={withBase("/power/")}>Power</a>
+      <a href={withBase("/the-melt/")}>The Melt</a>
+      <a href={withBase("/factions/")}>Factions</a>
+      <a href={withBase("/characters/")}>Characters</a>
+      <a href={withBase("/story-arcs/")}>Story Arcs</a>
+      <a href={withBase("/symbols/")}>Symbols</a>
+      <a href={withBase("/appendix/")}>Appendix</a>
+    </div>
+  </section>
+
+  <style>
+    .grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .grid a {
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(12, 14, 24, 0.6);
+      color: #d8dbee;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .grid a:hover,
+    .grid a:focus {
+      transform: translateY(-2px);
+      border-color: rgba(140, 170, 255, 0.7);
+    }
+  </style>
+</BaseLayout>
