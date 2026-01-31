@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
 ---
 
 <BaseLayout title="Nivara | Story Arcs">
@@ -19,6 +20,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <section>
     <h2>Continue</h2>
-    <p><a href="/symbols/">Next: Symbols →</a></p>
+    <p><a href={withBase("/symbols/")}>Next: Symbols →</a></p>
   </section>
 </BaseLayout>

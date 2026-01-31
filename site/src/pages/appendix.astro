@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
 ---
 
 <BaseLayout title="Nivara | Appendix">
@@ -19,6 +20,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <section>
     <h2>Return</h2>
-    <p><a href="/">Back to Invocation →</a></p>
+    <p><a href={withBase("/")}>Back to Invocation →</a></p>
   </section>
 </BaseLayout>

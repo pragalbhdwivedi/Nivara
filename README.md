@@ -6,7 +6,6 @@ A continent where seasons are not weather—they are politics.
 
 ## Website
 The Astro site lives in `/site` and deploys to GitHub Pages from this repository.
-Set the Pages source to **GitHub Actions** so the workflow can publish the site.
 
 Local development:
 ```bash

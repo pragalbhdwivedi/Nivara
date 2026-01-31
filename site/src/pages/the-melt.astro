@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
 ---
 
 <BaseLayout title="Nivara | The Melt">
@@ -19,6 +20,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <section>
     <h2>Continue</h2>
-    <p><a href="/factions/">Next: Factions →</a></p>
+    <p><a href={withBase("/factions/")}>Next: Factions →</a></p>
   </section>
 </BaseLayout>

@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/paths";
+
 const links = [
   { href: "/world/", label: "World" },
   { href: "/power/", label: "Power" },
@@ -13,10 +15,10 @@ const links = [
 
 <header class="topbar">
   <div class="topbar__inner">
-    <a class="topbar__brand" href="/">Nivara</a>
+    <a class="topbar__brand" href={withBase("/")}>Nivara</a>
     <nav class="topbar__nav">
       {links.map((link) => (
-        <a href={link.href}>{link.label}</a>
+        <a href={withBase(link.href)}>{link.label}</a>
       ))}
     </nav>
   </div>
