@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../utils/paths";
+---
+
+<BaseLayout title="Nivara | Factions">
+  <section>
+    <h1>Factions</h1>
+    <p>Political and cultural forces are cataloged here. Placeholder blocks define the structure for future entries.</p>
+  </section>
+
+  <section>
+    <h2>Roster outline</h2>
+    <ul>
+      <li>Primary alliances</li>
+      <li>Hidden orders</li>
+      <li>Rivalries and accords</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Continue</h2>
+    <p><a href={withBase("/characters/")}>Next: Characters →</a></p>
+  </section>
+</BaseLayout>

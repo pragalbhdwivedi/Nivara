@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/paths";
+---
+
+<BaseLayout title="Nivara | Appendix">
+  <section>
+    <h1>Appendix</h1>
+    <p>Reference materials, glossaries, and timelines will be collected here for quick access.</p>
+  </section>
+
+  <section>
+    <h2>Reference staging</h2>
+    <ul>
+      <li>Glossary terms</li>
+      <li>Chronology</li>
+      <li>Research notes</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Return</h2>
+    <p><a href={withBase("/")}>Back to Invocation →</a></p>
+  </section>
+</BaseLayout>
