@@ -1,4 +1,5 @@
 ---
+import path from "node:path";
 import BaseLayout from "./BaseLayout.astro";
 import CanonMarkdown from "../components/CanonMarkdown.astro";
 import WorldLayer from "../components/WorldLayer.tsx";
@@ -12,6 +13,12 @@ const {
   meta = {},
   fallbackBackground = "/assets/nivara/pages/world/bg.svg",
 } = Astro.props;
+
+const isDev = import.meta.env.DEV;
+const repoRoot = path.resolve(new URL("../../../", import.meta.url).pathname);
+const sourceFiles = sections
+  .map((section) => (section.sourcePath ? path.relative(repoRoot, section.sourcePath).replace(/\\/g, "/") : null))
+  .filter(Boolean);
 
 const backgroundImage = meta.background_image ?? fallbackBackground;
 const heroImage = meta.cover_image ?? null;
@@ -117,6 +124,16 @@ const fxStyle = {
 
     <div class="cinematic__content">
       <div class="cinematic__body">
+        {isDev && sourceFiles.length > 0 && (
+          <div class="canon-debug">
+            <p>Content source (dev only):</p>
+            <ul>
+              {sourceFiles.map((file) => (
+                <li>{file}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         {sections.map((section) => (
           <CanonMarkdown>
             <div set:html={section.html} />
@@ -267,6 +284,25 @@ const fxStyle = {
     grid-template-columns: minmax(0, 1fr) 260px;
     gap: 2.5rem;
     padding-top: 2rem;
+  }
+
+  .canon-debug {
+    border: 1px dashed rgba(140, 170, 255, 0.4);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    background: rgba(10, 12, 22, 0.6);
+    font-size: 0.85rem;
+    color: rgba(206, 216, 255, 0.85);
+  }
+
+  .canon-debug p {
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+  }
+
+  .canon-debug ul {
+    margin: 0;
+    padding-left: 1.2rem;
   }
 
   .cinematic__body {
