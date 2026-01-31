@@ -15,7 +15,8 @@ if (!symbolsDoc) {
 const { Content } = await symbolsDoc.render();
 ---
 
-<BaseLayout title="Nivara | Symbols">
+<BaseLayout title="Nivara | Symbols" namespace="symbols">
+  <SigilOverlay enabled={true} />
   <section>
     <h1>Symbols</h1>
   </section>

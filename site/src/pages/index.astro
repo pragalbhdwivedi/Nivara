@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ThreeIsland from "../components/ThreeIsland.astro";
-import LanternScene from "../components/three/LanternScene.tsx";
+import ScrollLanternIsland from "../components/ScrollLanternIsland.astro";
+import SigilOverlay from "../components/SigilOverlay.astro";
 ---
 
-<BaseLayout title="Nivara | Invocation">
+<BaseLayout title="Nivara | Invocation" namespace="home">
+  <SigilOverlay enabled={true} />
   <section>
     <h1>Invocation</h1>
     <p>
@@ -13,13 +14,7 @@ import LanternScene from "../components/three/LanternScene.tsx";
     </p>
   </section>
 
-  <ThreeIsland
-    title="The Lantern Breath"
-    description="A living light that steadies the path. This island previews how ritual motion will guide exploration."
-    componentName="LanternScene"
-  >
-    <LanternScene client:only="react" />
-  </ThreeIsland>
+  <ScrollLanternIsland />
 
   <section>
     <h2>Navigate the archive</h2>
