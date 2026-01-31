@@ -38,7 +38,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Build
-        run: BASE_PATH="/${{ github.event.repository.name }}" npm run build
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

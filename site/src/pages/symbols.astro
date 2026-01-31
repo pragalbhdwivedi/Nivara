@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ThreeIsland from "../components/ThreeIsland.astro";
 import SigilScene from "../components/three/SigilScene.tsx";
-import { withBase } from "../utils/paths";
 ---
 
 <BaseLayout title="Nivara | Symbols">
@@ -21,6 +20,6 @@ import { withBase } from "../utils/paths";
 
   <section>
     <h2>Continue</h2>
-    <p><a href={withBase("/appendix/")}>Next: Appendix →</a></p>
+    <p><a href="/appendix">Next: Appendix →</a></p>
   </section>
 </BaseLayout>

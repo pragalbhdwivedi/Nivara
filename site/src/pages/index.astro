@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ThreeIsland from "../components/ThreeIsland.astro";
 import LanternScene from "../components/three/LanternScene.tsx";
-import { withBase } from "../utils/paths";
 ---
 
 <BaseLayout title="Nivara | Invocation">
@@ -25,14 +24,14 @@ import { withBase } from "../utils/paths";
   <section>
     <h2>Navigate the archive</h2>
     <div class="grid">
-      <a href={withBase("/world/")}>World</a>
-      <a href={withBase("/power/")}>Power</a>
-      <a href={withBase("/the-melt/")}>The Melt</a>
-      <a href={withBase("/factions/")}>Factions</a>
-      <a href={withBase("/characters/")}>Characters</a>
-      <a href={withBase("/story-arcs/")}>Story Arcs</a>
-      <a href={withBase("/symbols/")}>Symbols</a>
-      <a href={withBase("/appendix/")}>Appendix</a>
+      <a href="/world">World</a>
+      <a href="/power">Power</a>
+      <a href="/the-melt">The Melt</a>
+      <a href="/factions">Factions</a>
+      <a href="/characters">Characters</a>
+      <a href="/story-arcs">Story Arcs</a>
+      <a href="/symbols">Symbols</a>
+      <a href="/appendix">Appendix</a>
     </div>
   </section>
 
