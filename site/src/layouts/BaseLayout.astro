@@ -1,0 +1,55 @@
+---
+import TopBar from "../components/TopBar.astro";
+
+const { title = "Nivara" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <TopBar />
+    <main class="main">
+      <slot />
+    </main>
+    <footer class="footer">
+      <p>Within the lantern light, the path unfolds.</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(body) {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: #05060c;
+    color: #eef0f7;
+    line-height: 1.6;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem 1.5rem 3rem;
+    text-align: center;
+    color: #9ea4c5;
+    font-size: 0.95rem;
+  }
+</style>
