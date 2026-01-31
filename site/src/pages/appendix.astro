@@ -1,24 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("nivara_pages");
+const appendixDoc = pages.find((page) => page.id === "APPENDIX_STORY_EXCERPTS");
+
+if (!appendixDoc) {
+  throw new Error("Missing appendix markdown.");
+}
+
+const { Content } = await appendixDoc.render();
 ---
 
 <BaseLayout title="Nivara | Appendix" namespace="appendix">
   <section>
     <h1>Appendix</h1>
-    <p>Reference materials, glossaries, and timelines will be collected here for quick access.</p>
   </section>
 
-  <section>
-    <h2>Reference staging</h2>
-    <ul>
-      <li>Glossary terms</li>
-      <li>Chronology</li>
-      <li>Research notes</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Return</h2>
-    <p><a href="/">Back to Invocation →</a></p>
-  </section>
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
 </BaseLayout>

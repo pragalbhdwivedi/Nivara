@@ -1,24 +1,24 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CanonMarkdown from "../../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("nivara_pages");
+const factionsDoc = pages.find((page) => page.id === "04_FACTIONS");
+
+if (!factionsDoc) {
+  throw new Error("Missing factions markdown.");
+}
+
+const { Content } = await factionsDoc.render();
 ---
 
 <BaseLayout title="Nivara | Factions" namespace="factions">
   <section>
     <h1>Factions</h1>
-    <p>Political and cultural forces are cataloged here. Placeholder blocks define the structure for future entries.</p>
   </section>
 
-  <section>
-    <h2>Roster outline</h2>
-    <ul>
-      <li>Primary alliances</li>
-      <li>Hidden orders</li>
-      <li>Rivalries and accords</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/characters">Next: Characters →</a></p>
-  </section>
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
 </BaseLayout>

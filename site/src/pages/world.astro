@@ -1,24 +1,30 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("nivara_pages");
+const worldOverview = pages.find((page) => page.id === "01_WORLD_OVERVIEW");
+const corePremise = pages.find((page) => page.id === "02_CORE_PREMISE");
+
+if (!worldOverview || !corePremise) {
+  throw new Error("Missing world overview or core premise markdown.");
+}
+
+const { Content: WorldOverview } = await worldOverview.render();
+const { Content: CorePremise } = await corePremise.render();
 ---
 
 <BaseLayout title="Nivara | World" namespace="world">
   <section>
     <h1>World</h1>
-    <p>Survey the geography, climates, and thresholds that define the realm. Placeholder sections outline the atlas to come.</p>
   </section>
 
-  <section>
-    <h2>Atlas staging</h2>
-    <ul>
-      <li>Regions and landmarks</li>
-      <li>Realm-scale phenomena</li>
-      <li>Travel routes and boundaries</li>
-    </ul>
-  </section>
+  <CanonMarkdown>
+    <WorldOverview />
+  </CanonMarkdown>
 
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/power">Next: Power rituals →</a></p>
-  </section>
+  <CanonMarkdown>
+    <CorePremise />
+  </CanonMarkdown>
 </BaseLayout>
