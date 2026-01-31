@@ -1,24 +1,9 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import CanonMarkdown from "../components/CanonMarkdown.astro";
-import { getCollection } from "astro:content";
+import MarkdownPage from "../layouts/MarkdownPage.astro";
+import { getCanonRoute } from "../utils/canon.js";
 
-const pages = await getCollection("nivara_pages");
-const appendixDoc = pages.find((page) => page.id === "APPENDIX_STORY_EXCERPTS");
-
-if (!appendixDoc) {
-  throw new Error("Missing appendix markdown.");
-}
-
-const { Content } = await appendixDoc.render();
+const route = "/appendix";
+const { title, sections, toc } = await getCanonRoute(route);
 ---
 
-<BaseLayout title="Nivara | Appendix" namespace="appendix">
-  <section>
-    <h1>Appendix</h1>
-  </section>
-
-  <CanonMarkdown>
-    <Content />
-  </CanonMarkdown>
-</BaseLayout>
+<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} />

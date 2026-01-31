@@ -1,24 +1,9 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import CanonMarkdown from "../components/CanonMarkdown.astro";
-import { getCollection } from "astro:content";
+import MarkdownPage from "../layouts/MarkdownPage.astro";
+import { getCanonRoute } from "../utils/canon.js";
 
-const pages = await getCollection("nivara_pages");
-const arcsDoc = pages.find((page) => page.id === "08_STORY_ARCS");
-
-if (!arcsDoc) {
-  throw new Error("Missing story arcs markdown.");
-}
-
-const { Content } = await arcsDoc.render();
+const route = "/story-arcs";
+const { title, sections, toc } = await getCanonRoute(route);
 ---
 
-<BaseLayout title="Nivara | Story Arcs" namespace="arcs">
-  <section>
-    <h1>Story Arcs</h1>
-  </section>
-
-  <CanonMarkdown>
-    <Content />
-  </CanonMarkdown>
-</BaseLayout>
+<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} />

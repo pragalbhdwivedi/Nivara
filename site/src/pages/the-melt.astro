@@ -1,24 +1,9 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import CanonMarkdown from "../components/CanonMarkdown.astro";
-import { getCollection } from "astro:content";
+import MarkdownPage from "../layouts/MarkdownPage.astro";
+import { getCanonRoute } from "../utils/canon.js";
 
-const pages = await getCollection("nivara_pages");
-const meltDoc = pages.find((page) => page.id === "06_CONFLICT_THE_MELT");
-
-if (!meltDoc) {
-  throw new Error("Missing The Melt markdown.");
-}
-
-const { Content } = await meltDoc.render();
+const route = "/the-melt";
+const { title, sections, toc } = await getCanonRoute(route);
 ---
 
-<BaseLayout title="Nivara | The Melt" namespace="melt">
-  <section>
-    <h1>The Melt</h1>
-  </section>
-
-  <CanonMarkdown>
-    <Content />
-  </CanonMarkdown>
-</BaseLayout>
+<MarkdownPage title={`Nivara | ${title}`} heading={title} sections={sections} toc={toc} />
