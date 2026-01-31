@@ -1,24 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("nivara_pages");
+const meltDoc = pages.find((page) => page.id === "06_CONFLICT_THE_MELT");
+
+if (!meltDoc) {
+  throw new Error("Missing The Melt markdown.");
+}
+
+const { Content } = await meltDoc.render();
 ---
 
 <BaseLayout title="Nivara | The Melt">
   <section>
     <h1>The Melt</h1>
-    <p>A placeholder outline for the great shift, its origins, and its continuing reverberations.</p>
   </section>
 
-  <section>
-    <h2>Key beats</h2>
-    <ul>
-      <li>Origins of the fracture</li>
-      <li>Aftershocks and regions</li>
-      <li>Survivor testimonies</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/factions">Next: Factions →</a></p>
-  </section>
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
 </BaseLayout>

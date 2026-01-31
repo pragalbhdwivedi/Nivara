@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CanonMarkdown from "../../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("characters");
+
+  return entries.map((entry) => {
+    const folder = entry.id.split("/")[0];
+    return {
+      params: { slug: folder.toLowerCase() },
+      props: { entry, folder },
+    };
+  });
+}
+
+const { entry, folder } = Astro.props;
+const { Content } = await entry.render();
+const title = `Nivara | ${folder}`;
+---
+
+<BaseLayout title={title}>
+  <section>
+    <h1>{folder}</h1>
+  </section>
+
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
+</BaseLayout>

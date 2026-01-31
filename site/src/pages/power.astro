@@ -1,24 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CanonMarkdown from "../components/CanonMarkdown.astro";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("nivara_pages");
+const powerDoc = pages.find((page) => page.id === "03_MAGIC_SYSTEM_OATHS_ELEMENTS");
+
+if (!powerDoc) {
+  throw new Error("Missing power markdown.");
+}
+
+const { Content } = await powerDoc.render();
 ---
 
 <BaseLayout title="Nivara | Power">
   <section>
     <h1>Power</h1>
-    <p>The rites, energies, and limitations that shape Nivara will be mapped here. For now, these are scaffolding notes.</p>
   </section>
 
-  <section>
-    <h2>Ritual threads</h2>
-    <ul>
-      <li>Sources of power</li>
-      <li>Costs and consequences</li>
-      <li>Sigils and focuses</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Continue</h2>
-    <p><a href="/the-melt">Next: The Melt →</a></p>
-  </section>
+  <CanonMarkdown>
+    <Content />
+  </CanonMarkdown>
 </BaseLayout>
