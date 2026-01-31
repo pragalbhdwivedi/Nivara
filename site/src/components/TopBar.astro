@@ -1,24 +1,22 @@
 ---
-import { withBase } from "../utils/paths";
-
 const links = [
-  { href: "/world/", label: "World" },
-  { href: "/power/", label: "Power" },
-  { href: "/the-melt/", label: "The Melt" },
-  { href: "/factions/", label: "Factions" },
-  { href: "/characters/", label: "Characters" },
-  { href: "/story-arcs/", label: "Story Arcs" },
-  { href: "/symbols/", label: "Symbols" },
-  { href: "/appendix/", label: "Appendix" },
+  { href: "/world", label: "World" },
+  { href: "/power", label: "Power" },
+  { href: "/the-melt", label: "The Melt" },
+  { href: "/factions", label: "Factions" },
+  { href: "/characters", label: "Characters" },
+  { href: "/story-arcs", label: "Story Arcs" },
+  { href: "/symbols", label: "Symbols" },
+  { href: "/appendix", label: "Appendix" },
 ];
 ---
 
 <header class="topbar">
   <div class="topbar__inner">
-    <a class="topbar__brand" href={withBase("/")}>Nivara</a>
+    <a class="topbar__brand" href="/">Nivara</a>
     <nav class="topbar__nav">
       {links.map((link) => (
-        <a href={withBase(link.href)}>{link.label}</a>
+        <a href={link.href}>{link.label}</a>
       ))}
     </nav>
   </div>

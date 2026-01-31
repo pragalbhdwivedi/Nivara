@@ -2,7 +2,8 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  base: process.env.BASE_PATH || "/",
+  base: "/",
+  output: "static",
   trailingSlash: "always",
   build: {
     format: "directory",
