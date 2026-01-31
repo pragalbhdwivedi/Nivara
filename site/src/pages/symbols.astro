@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CanonMarkdown from "../components/CanonMarkdown.astro";
+import SigilOverlay from "../components/SigilOverlay.astro";
 import ThreeIsland from "../components/ThreeIsland.astro";
 import SigilScene from "../components/three/SigilScene.tsx";
 import { getCollection } from "astro:content";
@@ -15,7 +15,8 @@ if (!symbolsDoc) {
 const { Content } = await symbolsDoc.render();
 ---
 
-<BaseLayout title="Nivara | Symbols">
+<BaseLayout title="Nivara | Symbols" namespace="symbols">
+  <SigilOverlay enabled={true} />
   <section>
     <h1>Symbols</h1>
   </section>
