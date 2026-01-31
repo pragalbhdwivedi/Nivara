@@ -34,6 +34,13 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
 
+      - name: Verify package-lock.json exists
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "Missing package-lock.json in $(pwd). Run npm install locally to generate it before pushing."
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
 
