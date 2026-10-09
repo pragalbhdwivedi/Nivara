@@ -15,7 +15,7 @@
     "@barba/core": "^2.10.3",
     "@react-three/drei": "^9.105.2",
     "@react-three/fiber": "^8.16.8",
-    "astro": "^4.15.0",
+    "astro": "^7.3.8",
     "gsap": "^3.12.5",
     "lenis": "^1.1.14",
     "gray-matter": "^4.0.3",
